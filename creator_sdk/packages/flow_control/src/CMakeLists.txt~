@@ -1,0 +1,18 @@
+# Add executable targets
+########################
+ADD_EXECUTABLE(flow_control flow_button_gateway.c flow_interface.c)
+
+# Add library targets
+#####################
+find_library(LIB_FLOWCORE libflowcore.so PATHS ${STAGING_DIR}/usr/lib)
+find_library(LIB_FLOWMESSAGING libflowmessaging.so PATHS ${STAGING_DIR}/usr/lib)
+find_library(LIB_FLOWDEVMGMT libflowdevmgmtlow.so PATHS ${STAGING_DIR}/usr/lib)
+find_library(LIB_XML libxml.so PATHS ${STAGING_DIR}/usr/lib)
+find_library(LIB_CYASSL libcyassl.so PATHS ${STAGING_DIR}/usr/lib)
+find_library(LIB_CONFIG libconfig.so PATHS ${STAGING_DIR}/usr/lib)
+TARGET_LINK_LIBRARIES(flow_control ${LIB_FLOWCORE} ${LIB_FLOWMESSAGING} ${LIB_FLOWDEVMGMT} ${LIB_XML} ${LIB_CYASSL} ${LIB_CONFIG})
+
+# Add install targets
+######################
+INSTALL(TARGETS flow_control RUNTIME DESTINATION bin)
+

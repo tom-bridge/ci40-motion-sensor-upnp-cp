@@ -1,0 +1,16 @@
+# Project Properties
+####################
+CMAKE_MINIMUM_REQUIRED (VERSION 2.6.2)
+PROJECT(flow_control)
+
+# Options
+###################
+SET(CMAKE_VERBOSE_MAKEFILE 1)
+SET(CMAKE_BUILD_TYPE DEBUG) # Options MINSIZEREL, RELEASE, DEBUG
+
+INCLUDE_DIRECTORIES(${STAGING_DIR}/usr/include/flow_dm ${STAGING_DIR}/usr/include/)
+
+# Paths
+########
+ADD_SUBDIRECTORY(src)
+
